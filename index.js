@@ -49,9 +49,9 @@ if (remainingFuel < 0){
   throw new Error("fuel is not enough.")
 }
 
-console.log(`Corrected New Velocity: ${vel2} km/h`);
-console.log(`Corrected New Distance: ${d2} km`);
-console.log(`Corrected Remaining Fuel: ${rf} kg`);
+console.log(`Corrected New Velocity: ${newVelocity.toFixed(2)} km/h`);
+console.log(`Corrected New Distance: ${newDistance.toFixed(2)} km`);
+console.log(`Corrected Remaining Fuel: ${remainingFuel.toFixed(2)} kg`);
 
 
 
