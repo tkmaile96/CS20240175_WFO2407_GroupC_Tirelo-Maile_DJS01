@@ -33,7 +33,6 @@ const givenData = {
   initialDistance: initialDistance,
   initialFuel: initialFuel,
   fuelBurnrate: fuelBurnrate
-
 }
 
 //calcultes new distance
@@ -42,13 +41,12 @@ const newDistance = givenData.initialDistance + (givenData.velocityInMS * (given
 //calculates remaining fuel
 const remainingFuel =  givenData.initialFuel - (givenData.fuelBurnrate * givenData.timeInSeconds);
 
-
  //calculates new velocity based on acceleration
-const newVelocity =  calculateNewVelocity(givenData.velocityInMS, givenData.acceleration, givenData.timeInSeconds);
+const newVelocity =  calculateNewVelocity(givenData.velocityInMS, givenData.acceleration, givenData.timeInSeconds) *  (3600 / 1000);
 
 // Pick up an error with how the function below is called and make it robust to such errors
-calcNewVel = (vel, acc, time) => { 
-  return vel + (acc*time)
+if (remainingFuel < 0){
+  throw new Error("fuel is not enough.")
 }
 
 console.log(`Corrected New Velocity: ${vel2} km/h`);
