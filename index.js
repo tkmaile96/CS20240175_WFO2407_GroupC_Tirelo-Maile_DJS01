@@ -23,7 +23,21 @@ const calculateNewVelocity = (initialVelocity, acceleration, timeInSeconds) => {
   }
   return initialVelocity + (acceleration * timeInSeconds);
 }
-const d2 = d + (vel*time) //calcultes new distance
+
+// create an object of the given data for better readability
+const givenData = {
+  velocty: velocity,
+  velocityInMS:  velocityInMS,
+  acceleration: acceleration,
+  timeInSeconds: timeInSeconds,
+  initialDistance: initialDistance,
+  initialFuel: initialFuel,
+  fuelBurnrate: fuelBurnrate
+
+}
+
+//calcultes new distance
+const newDistance = givenData.initialDistance + (givenData.velocityInMS * (givenData.timeInSeconds / 3600));
 const rf = fbr*time //calculates remaining fuel
 const vel2 = calcNewVel(acc, vel, time) //calculates new velocity based on acceleration
 
