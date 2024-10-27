@@ -38,7 +38,10 @@ const givenData = {
 
 //calcultes new distance
 const newDistance = givenData.initialDistance + (givenData.velocityInMS * (givenData.timeInSeconds / 3600));
-const rf = fbr*time //calculates remaining fuel
+
+//calculates remaining fuel
+const remainingFuel =  givenData.initialFuel - (givenData.fuelBurnrate * givenData.timeInSeconds);
+
 const vel2 = calcNewVel(acc, vel, time) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
