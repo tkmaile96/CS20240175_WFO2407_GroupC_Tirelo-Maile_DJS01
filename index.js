@@ -13,7 +13,16 @@ const initialDistance = 0; // distance (km)
 const initialFuel = 5000; // remaining fuel (kg)
 const fuelBurnrate = 0.5; // fuel burn rate (kg/s)
 
+// velocity conversions in meters per second (MS)
+const velocityInMS = velocity * (1000 / 3600);
 
+// function to calculate new velocity in M/S
+const calculateNewVelocity = (initialVelocity, acceleration, timeInSeconds) => {
+  if (![initialVelocity, acceleration, timeInSeconds].every(Number.isFinite)) {
+      throw new Error("Velocity, acceleration, and time must be valid numbers")
+  }
+  return initialVelocity + (acceleration * timeInSeconds);
+}
 const d2 = d + (vel*time) //calcultes new distance
 const rf = fbr*time //calculates remaining fuel
 const vel2 = calcNewVel(acc, vel, time) //calculates new velocity based on acceleration
